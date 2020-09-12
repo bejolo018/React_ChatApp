@@ -13,7 +13,7 @@ const Chat = ({ location }) => {
     const [name, setName] = useState('')
     const [room, setRoom] = useState('')
     const [message, setMessage] = useState('')
-    const [messages, setMessages] = useState('')
+    const [messages, setMessages] = useState([])
     const ENDPOINT = 'localhost:5000'
 
     useEffect(() => {
@@ -39,10 +39,10 @@ const Chat = ({ location }) => {
     }, [ENDPOINT, location.search])
 
     useEffect(() => {
-        socket.on('message', (message) => {
-            setMessages([...messages, message])
+        socket.on('message', message => {
+            setMessages(messages => [...messages, message])
         })
-    }, [messages])
+    }, [])
 
     const sendMessage = (event) => {
         event.preventDefault()
@@ -58,7 +58,7 @@ const Chat = ({ location }) => {
         <div className="outerContainer">
             <div className="container">
                 <InfoBar room={room}/>
-                {/* <Messages messages={messages}/> */}
+                <Messages messages={messages} name={name}/>
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
             </div>
         </div>
