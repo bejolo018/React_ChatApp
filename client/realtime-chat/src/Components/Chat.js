@@ -23,7 +23,13 @@ const Chat = ({ location }) => {
 
         socket.emit('join', {name, room}, () =>{
             
-        })
+        });
+
+        return () => {
+            socket.emit('disconnect')
+
+            socket.off()
+        }
         // Will only run hook IF these change
     }, [ENDPOINT, location.search])
 
