@@ -14,7 +14,7 @@ const Chat = ({ location }) => {
     const [room, setRoom] = useState('')
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
-    const ENDPOINT = 'localhost:5000'
+    const ENDPOINT = 'https://underground-react-chat.herokuapp.com/'
 
     useEffect(() => {
         // location simply gives us the URL
