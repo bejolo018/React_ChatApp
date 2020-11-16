@@ -10,7 +10,6 @@ const Header = () => (
         <h2>
             Discreet, private rooms.
         </h2>
-        <a className="plug" href="https://benjaminjohnlopez.com">benjaminjohnlopez.com</a>
     </div>
 
 )
